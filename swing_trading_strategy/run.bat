@@ -1,0 +1,1 @@
+call .\env\Scripts\activate.bat && py filter_stocks.py && cmd /k
