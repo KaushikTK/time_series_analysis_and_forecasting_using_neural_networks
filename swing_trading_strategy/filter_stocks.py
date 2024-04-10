@@ -7,9 +7,9 @@ from pytz import timezone
 from datetime import datetime
 
 
-file_name = 'n500'
+file_name = 'stock_universe'
 
-stocks_list = [i.upper() for i in pd.read_csv(f'./index_stocks/{file_name}.csv')['Symbol'].values if 'adani' not in i.lower()]
+stocks_list = [i.upper() for i in pd.read_csv(f'./index_stocks/stock_universe.csv')['Symbol'].values if 'adani' not in i.lower()]
 
 LONG = []
 SHORT = []
@@ -19,7 +19,7 @@ for stock in stocks_list:
     
     data['week_day'] = pd.to_datetime(data['Date']).dt.day_name()
     
-    data = data[~data['week_day'].isin(['Saturday', 'Sunday'])]
+    # data = data[~data['week_day'].isin(['Saturday', 'Sunday'])]
     
     data[['low', 'mid', 'high']] = data.ta.donchian(lower_length=20, upper_length=20)
     

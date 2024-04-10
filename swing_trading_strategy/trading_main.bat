@@ -1,0 +1,1 @@
+call .\env\Scripts\activate.bat && py trading_main.py && cmd /k
